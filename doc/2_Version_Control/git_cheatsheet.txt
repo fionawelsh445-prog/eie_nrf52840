@@ -1,0 +1,81 @@
+====================================================================
+                       GIT COMMAND CHEATSHEET
+====================================================================
+
+--- REPOSITORY CREATION & SETUP ---
+
+git fetch
+  Description: Downloads commits, files, and refs from a remote repository into your local repo without merging them into your current working branch.
+  Arguments:
+    - <remote> : Fetches all branches from the specified remote (e.g., git fetch origin).
+    - <remote> <branch> : Fetches only the specified branch (e.g., git fetch upstream main).
+
+
+--- INSPECTING A REPOSITORY ---
+
+git status
+  Description: Displays the state of the working directory and staging area. Shows which changes have been staged, which haven't, and which files aren't being tracked by Git.
+  Arguments: None commonly required.
+
+git log
+  Description: Displays the commit history for the current active branch in chronological order (newest first).
+  Arguments:
+    - Press 'q' to exit the log view if a colon (:) appears at the bottom.
+
+git diff
+  Description: Shows file differences not yet staged (changes between your working directory and the staging area).
+  Arguments:
+    - <filename> : Shows changes for a specific file only.
+
+
+--- WORKING WITH BRANCHES ---
+
+git branch
+  Description: Lists, creates, or deletes branches. Without arguments, it lists all local branches and highlights the currently active branch with an asterisk (*).
+  Arguments:
+    - <branch-name> : Creates a new branch with the given name.
+    - -d <branch-name> : Deletes the specified branch safely.
+
+git checkout
+  Description: Switches between branches or restores working tree files.
+  Arguments:
+    - <branch-name> : Switches to the specified branch (e.g., git checkout main).
+    - -b <branch-name> : Creates a new branch and immediately switches to it in one step.
+
+
+--- RECORDING CHANGES (STAGING & COMMITTING) ---
+
+git add
+  Description: Adds file changes from the working directory to the staging area, preparing them to be included in the next commit.
+  Arguments:
+    - <file-path> : Stages a specific file (e.g., git add doc/2_Version_Control/git_cheatsheet.txt).
+    - . : Stages all modified and new files in the current directory.
+
+git commit
+  Description: Captures a snapshot of the project's currently staged changes.
+  Arguments:
+    - -m 'message' : Passes a short inline commit message without opening a text editor (e.g., git commit -m 'Add Git Cheatsheet').
+
+
+--- SYNCHRONIZING & COMBINING WORK ---
+
+git pull
+  Description: Fetches changes from a remote branch and immediately merges them into the current local branch.
+  Arguments:
+    - <remote> <branch> : Pulls changes from a specific remote and branch (e.g., git pull upstream main).
+
+git push
+  Description: Uploads local commits to a remote repository.
+  Arguments:
+    - -u <remote> <branch> : Sets the upstream tracking branch for initial pushes (e.g., git push -u origin lesson2). After running this once for a branch, you can simply run 'git push' for future pushes.
+    - <remote> <branch> : Pushes to a specific remote and branch.
+
+git merge
+  Description: Combines lines of development by merging specified branch history into the current active branch.
+  Arguments:
+    - <branch-name> : Merges the target branch into your active branch (e.g., git merge lesson2).
+
+git rebase
+  Description: Moves or applies commits from one branch on top of another branch, linearizing commit history.
+  Arguments:
+    - <branch-name> : Rebases the current branch onto the specified target branch.
